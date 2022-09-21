@@ -1,10 +1,16 @@
-import { client } from "../../libs/client";
-import styles from "../../styles/Home.module.scss";
+import { client } from "../../../libs/client";
+import styles from "../../../styles/Home.module.scss";
+import { BlogData } from "../../types/BlogData.type";
+import { BlogDataContent } from "../../types/BlogDataContent.type";
+import { InferGetStaticPropsType, NextPage } from "next";
 
 // SSG
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const data = await client.get({ endpoint: "blog", contentId: id });
+  const data: BlogDataContent = await client.get({
+    endpoint: "blog",
+    contentId: id,
+  });
 
   return {
     props: {
@@ -15,9 +21,9 @@ export const getStaticProps = async (context) => {
 
 // 動的ページを作成するときはpathを示す必要がある
 export const getStaticPaths = async () => {
-  const data = await client.get({ endpoint: "blog" });
-
+  const data: BlogData = await client.get({ endpoint: "blog" });
   const paths = data.contents.map((content) => `/blog/${content.id}`);
+
   return {
     paths,
     fallback: false, // false->設定していないものは404になる
@@ -25,7 +31,10 @@ export const getStaticPaths = async () => {
 };
 
 // 引数は上でreturnしたblog;data
-export default function BlogId({ blog }) {
+export const BlogId = ({
+  blog,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(blog);
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>{blog.title}</h1>
@@ -36,4 +45,6 @@ export default function BlogId({ blog }) {
       ></div>
     </main>
   );
-}
+};
+
+export default BlogId;
