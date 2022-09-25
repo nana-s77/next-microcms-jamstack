@@ -9,7 +9,17 @@ export type BlogData = {
       revisedAt: string;
       title: string;
       body: string;
-      tags: [];
+      tags?: [
+        {
+          id: string;
+          createdAt: string;
+          updatedAt: string;
+          publishedAt: string;
+          revisedAt: string;
+          tagName: string;
+        }
+      ];
+      image?: any;
     }
   ];
   totalCount: number;
