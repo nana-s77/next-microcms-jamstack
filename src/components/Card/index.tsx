@@ -9,24 +9,35 @@ const CarsWidthType = {
 type CarsWidthType = typeof CarsWidthType[keyof typeof CarsWidthType];
 
 export const Card = (props) => {
-  const { title, imageSrc, tags, date } = props;
+  const { title, date, imageSrc, tags } = props;
   return (
     <div className={styles.card}>
       <Image
-        src={imageSrc}
-        width={CarsWidthType.SHORT ? 272 : 343}
+        src={imageSrc ? imageSrc : "/images/nophoto.png"}
+        width={CarsWidthType.LONG ? 343 : ""}
         height={215}
         alt=""
+        className={styles.image}
       ></Image>
-      <p className={styles.title}>{title}</p>
-      {tags ? (
-        <ul className={styles.tagList}>
-          {/* <li>{tags}</li> */}
-          <li>{tags.map((tagName) => tagName)}</li>
-        </ul>
-      ) : (
-        "何もないです"
-      )}
+      <div className={styles.textArea}>
+        <div className={styles.textAreaHeder}>
+          {tags ? (
+            <ul className={styles.tagList}>
+              {tags.map((tagName, index) => (
+                <li className={styles.tagItem} key={`tag__${index}`}>
+                  #{tagName}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            ""
+          )}
+          {/* todo:日付操作 */}
+          {/* <p className={styles.date}>{date}</p> */}
+        </div>
+
+        <p className={styles.title}>{title}</p>
+      </div>
     </div>
   );
 };
