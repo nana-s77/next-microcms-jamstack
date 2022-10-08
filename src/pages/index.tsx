@@ -33,7 +33,7 @@ const Home: NextPage = ({
                   title={blogItem.title}
                   date={blogItem.publishedAt}
                   tags={blogItem.tags.map((tag) => tag.tagName)}
-                  // imageSrc={blogItem.image ? blogItem.image : "/"}
+                  imageSrc={blogItem.image ? blogItem.image : "/"}
                 ></Card>
               </a>
             </Link>
