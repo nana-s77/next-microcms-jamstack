@@ -12,6 +12,7 @@ import { Card } from "../components/Card";
 // getStaticProps自体には型アノテーションをつけない
 export const getStaticProps = async () => {
   const data: BlogData = await client.get({ endpoint: "blog" });
+  console.log(data.contents[0].image);
   return {
     props: {
       blog: data.contents,
@@ -25,20 +26,18 @@ const Home: NextPage = ({
   return (
     <ul className={styles.postList}>
       {blog.map((blogItem) => (
-        <>
-          <li key={blogItem.id}>
-            <Link href={`blog/${blogItem.id}`}>
-              <a href="">
-                <Card
-                  title={blogItem.title}
-                  date={blogItem.publishedAt}
-                  tags={blogItem.tags.map((tag) => tag.tagName)}
-                  // imageSrc={blogItem.image ? blogItem.image : "/"}
-                ></Card>
-              </a>
-            </Link>
-          </li>
-        </>
+        <li key={blogItem.id}>
+          <Link href={`blog/${blogItem.id}`}>
+            <a href="">
+              <Card
+                title={blogItem.title}
+                date={blogItem.publishedAt}
+                tags={blogItem.tags.map((tag) => tag.tagName)}
+                imageSrc={blogItem.image ? blogItem.image.url : ""}
+              ></Card>
+            </a>
+          </Link>
+        </li>
       ))}
     </ul>
   );

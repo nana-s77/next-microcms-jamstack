@@ -19,7 +19,11 @@ export type BlogData = {
           tagName: string;
         }
       ];
-      image?: any;
+      image?: {
+        url: string;
+        height: number;
+        width: number;
+      };
     }
   ];
   totalCount: number;

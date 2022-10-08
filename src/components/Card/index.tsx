@@ -6,9 +6,16 @@ const CarsWidthType = {
   LONG: "long",
 } as const;
 
+type Props = {
+  title: string;
+  date: string;
+  imageSrc: string;
+  tags: string[];
+};
+
 type CarsWidthType = typeof CarsWidthType[keyof typeof CarsWidthType];
 
-export const Card = (props) => {
+export const Card = (props: Props) => {
   const { title, date, imageSrc, tags } = props;
   return (
     <div className={styles.card}>
