@@ -1,5 +1,16 @@
-.postList {
+.page {
+  padding: 0 16px;
+}
+
+.section {
+  padding-top: 60px;
+}
+.posts {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-top: 18px;
+}
+
+.postList {
 }

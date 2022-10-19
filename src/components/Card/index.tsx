@@ -25,7 +25,7 @@ export const Card = (props: Props) => {
         height={215}
         alt=""
         className={styles.image}
-      ></Image>
+      />
       <div className={styles.textArea}>
         <div className={styles.textAreaHeder}>
           {tags ? (

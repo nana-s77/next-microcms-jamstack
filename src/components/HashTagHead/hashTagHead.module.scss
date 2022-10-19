@@ -1,0 +1,16 @@
+.head {
+  position: relative;
+  padding-left: 50px;
+  color: #d4613e;
+  font-size: 14px;
+  font-weight: bold;
+
+  &::before {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    content: "#";
+    font-size: 60px;
+    transform: translateY(-50%);
+  }
+}
