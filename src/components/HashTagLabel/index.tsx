@@ -10,8 +10,8 @@ export const HashTagLabel = (props: Props) => {
   const { text, linkUrl } = props;
   return (
     <Link href={linkUrl}>
-      <a href="#">
-        <p className={styles.label}>{text}</p>
+      <a href="#" className={styles.label}>
+        #{text}
       </a>
     </Link>
   );
