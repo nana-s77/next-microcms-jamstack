@@ -20,7 +20,7 @@ export const Card = (props: Props) => {
   return (
     <div className={styles.card}>
       <Image
-        src={imageSrc.src ? imageSrc.src : "/images/nophoto.png"}
+        src={imageSrc ? imageSrc : "/images/nophoto.png"}
         width={CarsWidthType.LONG ? 343 : ""}
         height={215}
         alt=""
