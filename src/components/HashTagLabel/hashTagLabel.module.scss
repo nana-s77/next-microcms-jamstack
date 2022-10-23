@@ -1,16 +1,5 @@
-.head {
-  position: relative;
-  padding-left: 50px;
-  color: #d4613e;
-  font-size: 14px;
-  font-weight: bold;
-
-  &::before {
-    position: absolute;
-    top: 40%;
-    left: 0;
-    content: "#";
-    font-size: 60px;
-    transform: translateY(-50%);
-  }
+.label {
+  padding: 4px 8px;
+  color: #BB9568;
+  box-shadow: 1px 1px 4px rgba(82, 129, 139, 0.29);
 }

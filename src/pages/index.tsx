@@ -13,6 +13,7 @@ import { Header } from "../components/Header";
 import { H2 } from "../components/TextHead/H2";
 import { HashTagHead } from "../components/HashTagHead";
 import { HashTagLabel } from "../components/HashTagLabel";
+import { Writer } from "../components/Writer";
 
 // SSG
 // getStaticProps自体には型アノテーションをつけない
@@ -84,7 +85,7 @@ const Home: NextPage = ({
         <HashTagHead text="記事一覧へ" />
         <ul className={styles.hashTagList}>
           {hashTagList.map((hashTagItem, index) => (
-            <li key={`hashTag_${index}`}>
+            <li key={`hashTag_${index}`} className={styles.hashTagListItem} >
               <HashTagLabel
                 text={hashTagItem.label}
                 linkUrl={hashTagItem.url}
@@ -92,6 +93,15 @@ const Home: NextPage = ({
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.writers}>
+          <H2 text="書いた人" />
+          <Writer image="/images/writer/sakiyo.png" name="Sakiyo" job="社長・マーケッター" />
+          <Writer image="/images/writer/shun.png" name="Shun" job="マーケッター" />
+          <Writer image="/images/writer/na.png" name="Na" job="エンジニア" />
+        </div>
       </section>
     </div>
   );
