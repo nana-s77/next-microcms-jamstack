@@ -19,7 +19,12 @@ li::marker {
   content: "";
 }
 
-@media (prefers-color-scheme: dark) {
+.pageWrap {
+  width: 100%;
+  max-width: 1024px;
+}
+
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -27,4 +32,4 @@ li::marker {
     color: white;
     background: black;
   }
-}
+} */

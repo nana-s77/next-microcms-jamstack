@@ -85,7 +85,7 @@ const Home: NextPage = ({
         <HashTagHead text="記事一覧へ" />
         <ul className={styles.hashTagList}>
           {hashTagList.map((hashTagItem, index) => (
-            <li key={`hashTag_${index}`} className={styles.hashTagListItem} >
+            <li key={`hashTag_${index}`} className={styles.hashTagListItem}>
               <HashTagLabel
                 text={hashTagItem.label}
                 linkUrl={hashTagItem.url}
@@ -98,9 +98,34 @@ const Home: NextPage = ({
       <section className={styles.section}>
         <div className={styles.writers}>
           <H2 text="書いた人" />
-          <Writer image="/images/writer/sakiyo.png" name="Sakiyo" job="社長・マーケッター" />
-          <Writer image="/images/writer/shun.png" name="Shun" job="マーケッター" />
-          <Writer image="/images/writer/na.png" name="Na" job="エンジニア" />
+          <NormalText
+            text="Pitaの記事はライター（Pita人）が書いています"
+            weight=""
+            size={14}
+          />
+          <div className={styles.writersList}>
+            <li>
+              <Writer
+                image="/images/writer/sakiyo.png"
+                name="Sakiyo"
+                job="社長・マーケッター"
+              />
+            </li>
+            <li>
+              <Writer
+                image="/images/writer/shun.png"
+                name="Shun"
+                job="マーケッター"
+              />
+            </li>
+            <li>
+              <Writer
+                image="/images/writer/na.png"
+                name="Na"
+                job="つくったひと"
+              />
+            </li>
+          </div>
         </div>
       </section>
     </div>

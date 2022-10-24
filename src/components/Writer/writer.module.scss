@@ -1,23 +1,13 @@
 .writer {
-  display: grid;
-  // grid-template-rows: 1fr;
-  grid-template-columns: 20% 1fr;
-  // grid-auto-columns: minmax(100px, auto);
-  grid-template-areas: 
-    "image name"
-    "image job"
-  ;
-  margin-top: 30px;
+  display: flex;
+  gap: 20%;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.image {
-  grid-area: image;
-}
-
-.name {
-  grid-area: name;
-}
-
-.job {
-  grid-area: job;
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

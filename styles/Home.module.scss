@@ -6,10 +6,10 @@
   padding-top: 60px;
 }
 .posts {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
   gap: 40px;
-  margin-top: 18px;
+  margin: 18px auto 0;
 }
 
 .hashTagList {
@@ -22,4 +22,11 @@
 .writers {
   padding-top: 26px;
   border-top: 2px solid #d4613e;
+}
+
+.writersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(308px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
 }
