@@ -15,8 +15,8 @@ export const Writer = (props: Props) => {
         <Image src={`${image}`} width={75} height={100} alt={`${name}`} />
       </div>
       <div className={styles.textWrap}>
-        <p className={styles.name}>{name}</p>
-        <p className={styles.job}>{job}</p>
+        <p>{name}</p>
+        <p>{job}</p>
       </div>
     </div>
   );

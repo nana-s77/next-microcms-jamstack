@@ -1,10 +1,11 @@
-.page {
+.main {
   padding: 0 16px;
 }
 
 .section {
   padding-top: 60px;
 }
+
 .posts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
@@ -17,11 +18,6 @@
   flex-wrap: wrap;
   gap: 8px;
   margin: 22px 0 0 50px;
-}
-
-.writers {
-  padding-top: 26px;
-  border-top: 2px solid #d4613e;
 }
 
 .writersList {

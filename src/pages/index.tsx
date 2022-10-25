@@ -14,6 +14,7 @@ import { H2 } from "../components/TextHead/H2";
 import { HashTagHead } from "../components/HashTagHead";
 import { HashTagLabel } from "../components/HashTagLabel";
 import { Writer } from "../components/Writer";
+import { TopBorderHead } from "../components/TopBorderHead";
 
 // SSG
 // getStaticProps自体には型アノテーションをつけない
@@ -49,85 +50,85 @@ const Home: NextPage = ({
   return (
     <div className={styles.page}>
       <Header />
-      <H1 text="毎日を少しだけいいものに" />
-      <NormalText
-        text="ピンときたことにちょっとだけ丁寧に反応してみて"
-        weight="bold"
-        size={14}
-      />
-      <NormalText
-        text="心にピタッとくるものがみつかるかも"
-        weight="bold"
-        size={14}
-      />
+      <main className={styles.main}>
+        <H1 text="毎日を少しだけいいものに" />
+        <NormalText
+          text="ピンときたことにちょっとだけ丁寧に反応してみて"
+          weight="bold"
+          size={14}
+        />
+        <NormalText
+          text="心にピタッとくるものがみつかるかも"
+          weight="bold"
+          size={14}
+        />
 
-      <section className={styles.section}>
-        <H2 text="最新記事" />
-        <ul className={styles.posts}>
-          {blog.map((blogItem) => (
-            <li key={blogItem.id}>
-              <Link href={`blog/${blogItem.id}`}>
-                <a href="#">
-                  <Card
-                    title={blogItem.title}
-                    date={blogItem.publishedAt}
-                    tags={blogItem.tags.map((tag) => tag.tagName)}
-                    imageSrc={blogItem.image ? blogItem.image.url : ""}
-                  ></Card>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section className={styles.section}>
+          <H2 text="最新記事" />
+          <ul className={styles.posts}>
+            {blog.map((blogItem) => (
+              <li key={blogItem.id}>
+                <Link href={`blog/${blogItem.id}`}>
+                  <a href="#">
+                    <Card
+                      title={blogItem.title}
+                      date={blogItem.publishedAt}
+                      tags={blogItem.tags.map((tag) => tag.tagName)}
+                      imageSrc={blogItem.image ? blogItem.image.url : ""}
+                    ></Card>
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <section className={styles.section}>
-        <HashTagHead text="記事一覧へ" />
-        <ul className={styles.hashTagList}>
-          {hashTagList.map((hashTagItem, index) => (
-            <li key={`hashTag_${index}`} className={styles.hashTagListItem}>
-              <HashTagLabel
-                text={hashTagItem.label}
-                linkUrl={hashTagItem.url}
-              />
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section className={styles.section}>
+          <HashTagHead text="記事一覧へ" />
+          <ul className={styles.hashTagList}>
+            {hashTagList.map((hashTagItem, index) => (
+              <li key={`hashTag_${index}`} className={styles.hashTagListItem}>
+                <HashTagLabel
+                  text={hashTagItem.label}
+                  linkUrl={hashTagItem.url}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <section className={styles.section}>
-        <div className={styles.writers}>
-          <H2 text="書いた人" />
-          <NormalText
-            text="Pitaの記事はライター（Pita人）が書いています"
-            weight=""
-            size={14}
-          />
-          <div className={styles.writersList}>
-            <li>
-              <Writer
-                image="/images/writer/sakiyo.png"
-                name="Sakiyo"
-                job="社長・マーケッター"
-              />
-            </li>
-            <li>
-              <Writer
-                image="/images/writer/shun.png"
-                name="Shun"
-                job="マーケッター"
-              />
-            </li>
-            <li>
-              <Writer
-                image="/images/writer/na.png"
-                name="Na"
-                job="つくったひと"
-              />
-            </li>
-          </div>
-        </div>
-      </section>
+        <section className={styles.section}>
+            <TopBorderHead text="書いた人" />
+            <NormalText
+              text="Pitaの記事はライター（Pita人）が書いています"
+              weight=""
+              size={14}
+            />
+            <div className={styles.writersList}>
+              <li>
+                <Writer
+                  image="/images/writer/sakiyo.png"
+                  name="Sakiyo"
+                  job="社長・マーケッター"
+                />
+              </li>
+              <li>
+                <Writer
+                  image="/images/writer/shun.png"
+                  name="Shun"
+                  job="マーケッター"
+                />
+              </li>
+              <li>
+                <Writer
+                  image="/images/writer/na.png"
+                  name="Na"
+                  job="つくったひと"
+                />
+              </li>
+            </div>
+        </section>
+      </main>
     </div>
   );
 };
