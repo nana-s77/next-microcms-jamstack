@@ -9,12 +9,12 @@ import { BlogData } from "../types/BlogData.type";
 import { Card } from "../components/Card";
 import { H1 } from "../components/TextHead/H1";
 import { NormalText } from "../components/Text/NormalText";
-import { Header } from "../components/Header";
 import { H2 } from "../components/TextHead/H2";
 import { HashTagHead } from "../components/HashTagHead";
 import { HashTagLabel } from "../components/HashTagLabel";
 import { Writer } from "../components/Writer";
 import { TopBorderHead } from "../components/TopBorderHead";
+import { NormalLayout } from "../components/Layout/NormalLayout";
 
 // SSG
 // getStaticProps自体には型アノテーションをつけない
@@ -48,9 +48,8 @@ const Home: NextPage = ({
   ];
 
   return (
-    <div className={styles.page}>
-      <Header />
-      <main className={styles.main}>
+    <NormalLayout>
+      <div className={styles.main}>
         <H1 text="毎日を少しだけいいものに" />
         <NormalText
           text="ピンときたことにちょっとだけ丁寧に反応してみて"
@@ -98,38 +97,38 @@ const Home: NextPage = ({
         </section>
 
         <section className={styles.section}>
-            <TopBorderHead text="書いた人" />
-            <NormalText
-              text="Pitaの記事はライター（Pita人）が書いています"
-              weight=""
-              size={14}
-            />
-            <div className={styles.writersList}>
-              <li>
-                <Writer
-                  image="/images/writer/sakiyo.png"
-                  name="Sakiyo"
-                  job="社長・マーケッター"
-                />
-              </li>
-              <li>
-                <Writer
-                  image="/images/writer/shun.png"
-                  name="Shun"
-                  job="マーケッター"
-                />
-              </li>
-              <li>
-                <Writer
-                  image="/images/writer/na.png"
-                  name="Na"
-                  job="つくったひと"
-                />
-              </li>
-            </div>
+          <TopBorderHead text="書いた人" />
+          <NormalText
+            text="Pitaの記事はライター（Pita人）が書いています"
+            weight=""
+            size={14}
+          />
+          <div className={styles.writersList}>
+            <li>
+              <Writer
+                image="/images/writer/sakiyo.png"
+                name="Sakiyo"
+                job="社長・マーケッター"
+              />
+            </li>
+            <li>
+              <Writer
+                image="/images/writer/shun.png"
+                name="Shun"
+                job="マーケッター"
+              />
+            </li>
+            <li>
+              <Writer
+                image="/images/writer/na.png"
+                name="Na"
+                job="つくったひと"
+              />
+            </li>
+          </div>
         </section>
-      </main>
-    </div>
+      </div>
+    </NormalLayout>
   );
 };
 
