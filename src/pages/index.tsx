@@ -15,6 +15,7 @@ import { HashTagLabel } from "../components/HashTagLabel";
 import { Writer } from "../components/Writer";
 import { TopBorderHead } from "../components/TopBorderHead";
 import { NormalLayout } from "../components/Layout/NormalLayout";
+import { useInView } from "react-intersection-observer";
 
 // SSG
 // getStaticProps自体には型アノテーションをつけない
@@ -47,20 +48,28 @@ const Home: NextPage = ({
     },
   ];
 
+  const { ref, inView } = useInView({
+    rootMargin: "-130px", // ref要素が現れてから0px過ぎたら
+  });
+
   return (
-    <NormalLayout>
+    <NormalLayout inView={inView}>
       <div className={styles.main}>
-        <H1 text="毎日を少しだけいいものに" />
-        <NormalText
-          text="ピンときたことにちょっとだけ丁寧に反応してみて"
-          weight="bold"
-          size={14}
-        />
-        <NormalText
-          text="心にピタッとくるものがみつかるかも"
-          weight="bold"
-          size={14}
-        />
+        {/* refを与えた要素が画面に現れるとinViewがtrueになる */}
+        {/* すでに見えているのでdefaultがtrue */}
+        <div ref={ref}>
+          <H1 text="毎日を少しだけいいものに" />
+          <NormalText
+            text="ピンときたことにちょっとだけ丁寧に反応してみて"
+            weight="bold"
+            size={14}
+          />
+          <NormalText
+            text="心にピタッとくるものがみつかるかも"
+            weight="bold"
+            size={14}
+          />
+        </div>
 
         <section className={styles.section}>
           <H2 text="最新記事" />
