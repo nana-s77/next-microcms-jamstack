@@ -1,0 +1,55 @@
+.navWrap {
+  display: flex;
+  position: fixed;
+}
+
+.menu {
+  position: relative;
+  width: clamp(48px, 10vw, 100px);
+  max-height: 20px;
+  top: 10px;
+}
+
+.nav {
+  // width: 300px;
+}
+
+.list {
+  position: absolute;
+  // top: 30px;
+  right: -140px;
+
+  overflow-x: auto;
+  display: flex;
+  // width: 300px;
+
+  font-size: clamp(14px, 2.3vw, 20px);
+  padding-top: 6px;
+  gap: 8px;
+}
+
+.listItem {
+  white-space: nowrap;
+}
+
+// アニメーション
+@keyframes swing {
+  15% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  65% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
