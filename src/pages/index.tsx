@@ -112,7 +112,7 @@ const Home: NextPage = ({
             weight=""
             size={14}
           />
-          <div className={styles.writersList}>
+          <ul className={styles.writersList}>
             <li>
               <Writer
                 image="/images/writer/sakiyo.png"
@@ -134,7 +134,7 @@ const Home: NextPage = ({
                 job="つくったひと"
               />
             </li>
-          </div>
+          </ul>
         </section>
       </div>
     </NormalLayout>
