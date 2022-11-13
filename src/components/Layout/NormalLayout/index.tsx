@@ -10,6 +10,8 @@ type Props = {
 
 export const NormalLayout = (props: Props) => {
   const { inView, children } = props;
+  // const layoutRoot = document.getElementById("layoutRoot");
+
   return (
     // layout配下のみz-indexを付与する
     <div id="layoutRoot" className={styles.layout}>
@@ -17,6 +19,7 @@ export const NormalLayout = (props: Props) => {
       <main>{children}</main>
       <footer></footer>
       {/* portal の要素は以下にレンダリングされる */}
+      <div id="portalRoot"></div>
     </div>
   );
 };

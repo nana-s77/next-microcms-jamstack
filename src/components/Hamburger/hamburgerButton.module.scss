@@ -1,0 +1,78 @@
+.menu {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 14px 16px 0;
+  background-color: transparent;
+  cursor: pointer;
+  // z-index: 3;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 50%;
+    content: "";
+    height: 2px;
+    width: 40px;
+    background-color: #2f2b27;
+    border-radius: 1px;
+    transition: all .4s ease;
+  }
+
+  &::before {
+    top: 9px;
+    transform: translateX(-50%);
+  }
+
+  &::after {
+    bottom: 9px;
+    transform: translateX(-50%);
+  }
+
+  &.isOpen {
+    &::before {
+      top: 19px;
+      transform: translateX(-50%) rotate(45deg);
+      background-color: #d4613e;
+    }
+
+    &::after {
+      bottom: 19px;
+      transform: translateX(-50%) rotate(-45deg);
+      background-color: #d4613e;
+    }
+  }
+}
+
+.menuText {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 100%;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    height: 2px;
+    width: 40px;
+    background-color: #2f2b27;
+    border-radius: 1px;
+    transform: translate(-50%, -50%);
+  }
+
+  &.isOpen {
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+.menuContents {
+  display: none;
+}

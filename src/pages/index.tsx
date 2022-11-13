@@ -138,7 +138,7 @@ const Home: NextPage = ({
         </section>
       </div>
     </NormalLayout>
-  );
+  )
 };
 
 export default Home;

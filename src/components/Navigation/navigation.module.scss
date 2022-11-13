@@ -1,35 +1,50 @@
-.navWrap {
-  display: flex;
+.overlay {
   position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: all .2s ease;
+
+  &.isOpen {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(47, 43, 39, .7);
+  }
 }
 
-.menu {
-  position: relative;
-  width: clamp(48px, 10vw, 100px);
-  max-height: 20px;
-  top: 10px;
-}
 
 .nav {
-  // width: 300px;
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  width: 60%;
+  height: 100vh;
+  padding: 90px 0;
+  background-color: #fff;
+  transition: all .4s ease;
+  // z-index: 2;
+
+  &.isOpen {
+    right: 0;
+  }
 }
 
 .list {
-  position: absolute;
-  // top: 30px;
-  right: -140px;
-
-  overflow-x: auto;
   display: flex;
-  // width: 300px;
-
-  font-size: clamp(14px, 2.3vw, 20px);
-  padding-top: 6px;
-  gap: 8px;
+  flex-direction: column;
 }
 
 .listItem {
+  width: 100%;
   white-space: nowrap;
+  font-size:clamp(14px, 2vw, 24px);
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+  }
 }
 
 // アニメーション

@@ -1,24 +1,26 @@
 import styles from "./navigation.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { MouseEventHandler } from "react";
 
-export const Navigation = (props) => {
+type Props = {
+  onClick: MouseEventHandler,
+  open: boolean
+}
+
+export const Navigation = (props:Props) => {
+  // router使う？
   const menuContents: Array<{ name: string; url: string }> = [
     { name: "記事一覧", url: "/" },
     { name: "私たちについて", url: "/" },
     { name: "お問い合わせ", url: "/" },
   ];
+  const { onClick, open } = props;
+
   return (
-    <div className={styles.navWrap}>
-      <p className={styles.menu}>
-        <Image
-          src="/images/menu.svg"
-          layout="fill"
-          objectFit="contain"
-          alt="menu"
-        />
-      </p>
-      <nav className={styles.nav}>
+    <>
+      <button type="button" className={`${styles.overlay} ${open && styles.isOpen}`} onClick={onClick}></button>
+      <nav className={`${styles.nav} ${open && styles.isOpen}`}>
         <ul className={styles.list}>
           {menuContents.map((item, index) => (
             <li key={`${item.name}__${index}`} className={styles.listItem}>
@@ -29,6 +31,6 @@ export const Navigation = (props) => {
           ))}
         </ul>
       </nav>
-    </div>
+    </>
   );
 };

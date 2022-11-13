@@ -1,0 +1,15 @@
+.writer {
+  display: flex;
+  gap: 20%;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
