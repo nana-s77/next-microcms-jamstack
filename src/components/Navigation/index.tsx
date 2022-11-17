@@ -19,7 +19,6 @@ export const Navigation = (props:Props) => {
 
   return (
     <>
-      <button type="button" className={`${styles.overlay} ${open && styles.isOpen}`} onClick={onClick}></button>
       <nav className={`${styles.nav} ${open && styles.isOpen}`}>
         <ul className={styles.list}>
           {menuContents.map((item, index) => (
@@ -31,6 +30,7 @@ export const Navigation = (props:Props) => {
           ))}
         </ul>
       </nav>
+      <button type="button" className={`${styles.overlay} ${open && styles.isOpen}`} onClick={onClick}></button>
     </>
   );
 };

@@ -22,7 +22,7 @@
   padding: 90px 0;
   background-color: #fff;
   transition: all .4s ease;
-  // z-index: 2;
+  z-index: 10;
 
   &.isOpen {
     right: 0;

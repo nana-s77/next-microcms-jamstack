@@ -3,7 +3,8 @@ import { MouseEventHandler, useEffect } from "react";
 import { Navigation } from "../Navigation";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import Portal from "../Portal";
+import { Portal } from "../Portal";
+
 
 type Props = {
   onClick: MouseEventHandler,
@@ -19,18 +20,19 @@ export const HamburgerButton = (props:Props) => {
   }, []);
 
   return (
-      <Portal>
-        <div>
-          <button 
-            className={`${styles.menu} ${open && styles.isOpen}`} 
-            type="button" 
-            onClick={onClick}
-            aria-expanded={open}
-          >
-            <span className={`${styles.menuText} ${open && styles.isOpen}`}>メニューを開く</span>
-          </button>
-          <Navigation onClick={onClick} open={open} />
-        </div>
-      </Portal>
+    <div>
+      <button 
+        className={`${styles.menu} ${open && styles.isOpen}`} 
+        type="button" 
+        onClick={onClick}
+        aria-expanded={open}
+      >
+        <span className={`${styles.menuText} ${open && styles.isOpen}`}>メニューを開く</span>
+      </button>
+      {/* TODO:reactPortalとハイドレートについて調べる */}
+      {/* <Portal> */}
+        <Navigation onClick={onClick} open={open} />
+      {/* </Portal> */}
+    </div>
   )
 };

@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { client } from "../../libs/client";
-import styles from "../../styles/Home.module.scss";
+import styles from "../../styles/home.module.scss";
 import { InferGetStaticPropsType, NextPage } from "next";
 import { BlogData } from "../types/BlogData.type";
 import { Card } from "../components/Card";
