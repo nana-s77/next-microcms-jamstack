@@ -16,37 +16,34 @@ import { Writer } from "../components/Writer";
 import { TopBorderHead } from "../components/TopBorderHead";
 import { NormalLayout } from "../components/Layout/NormalLayout";
 import { useInView } from "react-intersection-observer";
+import { TagData } from "../types/TagData.type";
+import { url } from "inspector";
 
 // SSG
 // getStaticProps自体には型アノテーションをつけない
 export const getStaticProps = async () => {
   const data: BlogData = await client.get({ endpoint: "blog" });
-  console.log(data.contents[0].image);
+  const tagData: TagData = await client.get({endpoint: 'tags',})
+  console.log(tagData);
+  
   return {
     props: {
       blog: data.contents,
+      tags: tagData.contents
     },
   };
 };
 
 const Home: NextPage = ({
   blog,
+  tags
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // todo: CMSから取ってこれる？
-  const hashTagList = [
+  const hashTagList = tags.map(tag => (
     {
-      label: "すべて",
-      url: "#",
-    },
-    {
-      label: "丁寧に暮す",
-      url: "#",
-    },
-    {
-      label: "知るを楽しむ",
-      url: "#",
-    },
-  ];
+      label:tag.tagName,
+      url: `/list/${tag.tagName}`
+    }
+  ));
 
   const { ref, inView } = useInView({
     rootMargin: "-130px", // ref要素が現れてから0px過ぎたら
@@ -94,6 +91,12 @@ const Home: NextPage = ({
         <section className={styles.section}>
           <HashTagHead text="記事一覧へ" />
           <ul className={styles.hashTagList}>
+            <li className={styles.hashTagListItem}>
+              <HashTagLabel
+                text="すべて"
+                linkUrl="/list"
+              />
+            </li>
             {hashTagList.map((hashTagItem, index) => (
               <li key={`hashTag_${index}`} className={styles.hashTagListItem}>
                 <HashTagLabel
@@ -141,4 +144,4 @@ const Home: NextPage = ({
   )
 };
 
-export default Home;
+export default Home

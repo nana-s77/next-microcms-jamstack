@@ -8,7 +8,7 @@
   margin: 14px 16px 0;
   background-color: transparent;
   cursor: pointer;
-  z-index: 20;
+  z-index: 1; //Navigation(z-index 1)よりも上にくる
 
   &::before,
   &::after {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MouseEventHandler } from "react";
 
 type Props = {
-  onClick: MouseEventHandler,
+  // onClick: MouseEventHandler,
   open: boolean
 }
 
@@ -15,7 +15,7 @@ export const Navigation = (props:Props) => {
     { name: "私たちについて", url: "/" },
     { name: "お問い合わせ", url: "/" },
   ];
-  const { onClick, open } = props;
+  const { open } = props;
 
   return (
     <>
@@ -30,7 +30,6 @@ export const Navigation = (props:Props) => {
           ))}
         </ul>
       </nav>
-      <button type="button" className={`${styles.overlay} ${open && styles.isOpen}`} onClick={onClick}></button>
     </>
   );
 };

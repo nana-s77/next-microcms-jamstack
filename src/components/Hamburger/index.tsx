@@ -29,10 +29,10 @@ export const HamburgerButton = (props:Props) => {
       >
         <span className={`${styles.menuText} ${open && styles.isOpen}`}>メニューを開く</span>
       </button>
-      {/* TODO:reactPortalとハイドレートについて調べる */}
-      {/* <Portal> */}
-        <Navigation onClick={onClick} open={open} />
-      {/* </Portal> */}
+      <Portal>
+        <button type="button" className={`${styles.overlay} ${open && styles.isOpen}`} onClick={onClick}></button>
+        <Navigation open={open} />
+      </Portal>
     </div>
   )
 };
