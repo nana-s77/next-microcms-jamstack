@@ -14,10 +14,10 @@ import { HashTagHead } from "../components/HashTagHead";
 import { HashTagLabel } from "../components/HashTagLabel";
 import { Writer } from "../components/Writer";
 import { TopBorderHead } from "../components/TopBorderHead";
+import { CircleButton } from "../components/CircleButton";
 import { NormalLayout } from "../components/Layout/NormalLayout";
 import { useInView } from "react-intersection-observer";
 import { TagData } from "../types/TagData.type";
-import { url } from "inspector";
 
 // SSG
 // getStaticProps自体には型アノテーションをつけない
@@ -106,6 +106,17 @@ const Home: NextPage = ({
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className={styles.section}>
+          <TopBorderHead text="Ta~まり馬" />
+          <NormalText
+            text="おしゃべりしよう"
+            weight=""
+            size={14}
+          />
+          <CircleButton imageSrc="/images/tamari.svg" text="wawa~" linkUrl="#" altText="Ta~まり場はこちら" />
+
         </section>
 
         <section className={styles.section}>

@@ -1,0 +1,30 @@
+.circleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  min-width: 150px;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 1px 1px 6px #EBB676;
+  cursor: pointer;
+
+  &::before {
+    display: block;
+    content: '';
+    padding-top: 100%;
+  }
+}
+
+.imageWrap {
+  max-width: 300px;
+  width: 70%;
+}
+
+.text {
+  font-size:clamp(14px, 2vw, 24px);
+  margin-top: 10px;
+  color: #BB9568;
+  text-align: center;
+}
