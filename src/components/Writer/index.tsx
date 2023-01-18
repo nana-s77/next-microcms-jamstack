@@ -19,5 +19,5 @@ export const Writer = (props: Props) => {
         <p>{job}</p>
       </div>
     </div>
-  );
+  )
 };

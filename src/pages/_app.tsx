@@ -1,12 +1,12 @@
 import "ress";
-import "/styles/globals.css";
+import "/styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
     <div className="pageWrap">
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </div>
-  );
+  )
 }
 
 export default MyApp;

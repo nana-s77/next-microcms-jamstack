@@ -23,6 +23,7 @@ export const Card = (props: Props) => {
         src={imageSrc ? imageSrc : "/images/nophoto.png"}
         width={CarsWidthType.LONG ? 343 : ""}
         height={215}
+        objectFit='cover'
         alt=""
         className={styles.image}
       />
